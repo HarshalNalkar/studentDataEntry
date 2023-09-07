@@ -1,18 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%
-String msg = (String) request.getAttribute("msg");
-%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 <style type="text/css">
-#div {
-	display: felx;
-	justify-content: center;
-	align-content: center;
+form {
+	margin-top: 10px;
+}
+
+form table {
+	margin: auto;
+	width: 100%;
+}
+
+tr {
+	text-align: center;
 }
 
 fieldset table {
@@ -21,7 +25,7 @@ fieldset table {
 }
 
 fieldset {
-	margin: 15px 520px;
+	margin: 15px 520px; 
 	text-align: center;
 }
 
@@ -38,17 +42,10 @@ body {
 </style>
 </head>
 <body>
-	<div align="center" id="div">
-		<%
-		if (msg != null) {
-		%>
-		<h2><%=msg%></h2>
-		<%
-		}
-		%>
+	<div align="center">
 		<fieldset>
-			<legend>Login Page</legend>
-			<form action="./login" method="post">
+			<legend>Create Admin Account</legend>
+			<form action="./createAccount" method="post">
 				<table>
 					<tr>
 						<td>Username</td>
@@ -59,11 +56,9 @@ body {
 						<td><input type="text" name="password"></td>
 					</tr>
 				</table>
-				<input type="submit" value="LOGIN">
+				<input type="submit" value="CREATE ACCOUNT">
 			</form>
 		</fieldset>
-		<a href="http://localhost:8080/springmvc/createAccount"">
-		Create Account</a>
 	</div>
 </body>
 </html>
