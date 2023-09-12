@@ -1,5 +1,7 @@
 package com.jspiders.springmvc.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -48,15 +50,17 @@ public class AdminController {
 
 	// Login controller
 	@PostMapping("/login")
-	public String login(@RequestParam String username, @RequestParam String password, ModelMap map) {
+	public String login(@RequestParam String username, @RequestParam String password, ModelMap map,
+			HttpSession session) {
 
 		AdminPOJO adminPOJO = adminService.login(username, password);
 
 		// success
 		if (adminPOJO != null) {
+			session.setAttribute("login", adminPOJO);
+			session.setMaxInactiveInterval(1000);
 			return "Home";
 		}
-
 		// failure
 		map.addAttribute("msg", "Invalid username password...!");
 		return "Login";
@@ -64,7 +68,9 @@ public class AdminController {
 
 	// Logout controller
 	@GetMapping("/logout")
-	public String logout(ModelMap map) {
+	public String logout(ModelMap map, HttpSession session) {
+
+		session.invalidate();
 		map.addAttribute("msg", "Logged out successflly...!");
 		return "Login";
 	}
