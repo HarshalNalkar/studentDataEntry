@@ -16,62 +16,57 @@ import com.jspiders.springmvc.service.AdminService;
 public class AdminController {
 
 	@Autowired
-	private AdminService adminService;
+	private AdminService service;
 
-	// create account page controller
+	// Create Account Page Controller
 	@GetMapping("/createAccount")
 	public String createAccountPage(ModelMap map) {
+		AdminPOJO pojo = service.getAdmin();
 
-		AdminPOJO adminPOJO = adminService.getAdmin();
-
-		if (adminPOJO != null) {
-			map.addAttribute("msg", "Account already exists...!");
+		if (pojo != null) {
+			map.addAttribute("msg", "Account already exists..!");
 			return "Login";
 		}
 		return "CreateAccount";
-
 	}
 
 	// Create Account Controller
 	@PostMapping("/createAccount")
 	public String createAccount(@RequestParam String username, @RequestParam String password, ModelMap map) {
+		AdminPOJO pojo = service.createAccount(username, password);
 
-		AdminPOJO adminPOJO = adminService.createAccount(username, password);
-
-		// success
-		if (adminPOJO != null) {
-			map.addAttribute("msg", "Account created successfully...!");
+		// Success
+		if (pojo != null) {
+			map.addAttribute("msg", "Account created successfully..!");
 			return "Login";
 		}
+
 		// Failure
-		map.addAttribute("msg", "Account not created...!");
+		map.addAttribute("msg", "Account not created..!");
 		return "Login";
 	}
 
-	// Login controller
+	// Login Controller
 	@PostMapping("/login")
 	public String login(@RequestParam String username, @RequestParam String password, ModelMap map,
 			HttpSession session) {
-
-		AdminPOJO adminPOJO = adminService.login(username, password);
-
-		// success
-		if (adminPOJO != null) {
-			session.setAttribute("login", adminPOJO);
-			session.setMaxInactiveInterval(1000);
+		AdminPOJO pojo = service.login(username, password);
+		// Success
+		if (pojo != null) {
+			session.setAttribute("login", pojo);
+			session.setMaxInactiveInterval(100);
 			return "Home";
 		}
-		// failure
-		map.addAttribute("msg", "Invalid username password...!");
+		map.addAttribute("msg", "Invalid username or password..!");
 		return "Login";
 	}
 
-	// Logout controller
+	// Logout Controller
 	@GetMapping("/logout")
 	public String logout(ModelMap map, HttpSession session) {
-
 		session.invalidate();
-		map.addAttribute("msg", "Logged out successflly...!");
+		map.addAttribute("msg", "Logged out successfully..!");
 		return "Login";
 	}
+
 }

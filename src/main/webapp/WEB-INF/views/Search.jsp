@@ -12,6 +12,9 @@ String msg = (String) request.getAttribute("msg");
 <meta charset="ISO-8859-1">
 <title>Search Bar</title>
 <style type="text/css">
+body{
+	font-family: "Lato", sans-serif;
+}
 form {
 	margin-top: 10px;
 }
@@ -19,6 +22,9 @@ form {
 form table {
 	margin: auto;
 	width: 100%;
+}
+div{
+margin-top: 30px;
 }
 
 tr {
@@ -30,26 +36,49 @@ fieldset table {
 	text-align: left;
 }
 
+.input{
+    padding: 5px;
+}
+
 fieldset {
-	margin: 15px 520px;
+	margin: 15px 420px;
 	text-align: center;
+    border-radius: 10px;
+    font-weight: bold;
 }
 
 legend {
 	color: white;
 	background-color: #333;
+	padding: 5px 30px;
+    border-radius: 25px;
 }
 
 #data {
-	background-color: white;
+	background: hsl(204, 15%, 94%);
 	border: 1px solid black;
 	width: 100%;
 	border: 1px solid black;
+	padding: 7px;
+	margin-top: 30px;
 }
 
 #data td {
 	border: 1px solid black;
 	text-align: center;
+	padding: 7px;
+}
+button{
+    padding: 5px 25px;
+    margin-top: 15px;
+    border-radius: 10px;
+    font-weight: bold;
+    background: #5bd2f7;
+}
+button:hover{
+    background: #24a7cf;
+    cursor: pointer;
+    border: 2px solid #24a7cf;
 }
 </style>
 
@@ -62,10 +91,10 @@ legend {
 			<table>
 				<tr>
 					<td>Enter Id</td>
-					<td><input type="text" name="id"></td>
+					<td><input type="text" name="id" size="40" class="input"></td>
 				</tr>
 			</table>
-			<input type="submit" value="SEARCH">
+			<button type="submit">SEARCH</button>
 		</form>
 	</fieldset>
 
