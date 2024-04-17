@@ -16,6 +16,12 @@ String msg = (String) request.getAttribute("msg");
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 <style type="text/css">
+body{
+	font-family: "Lato", sans-serif;
+}
+div{
+margin-top: 30px;
+}
 form {
 	margin-top: 10px;
 }
@@ -29,16 +35,23 @@ tr {
 	text-align: center;
 }
 
+.input{
+    padding: 5px;
+}
+
 #data {
-	background-color: white;
+	background: hsl(204, 15%, 94%);
 	border: 1px solid black;
 	width: 100%;
 	border: 1px solid black;
+	padding: 7px;
+	margin-top: 30px;
 }
 
 #data td {
 	border: 1px solid black;
 	text-align: center;
+	padding: 7px;
 }
 
 fieldset table {
@@ -47,13 +60,29 @@ fieldset table {
 }
 
 fieldset {
-	margin: 15px 520px;
+	margin: 15px 420px;
 	text-align: center;
+    border-radius: 10px;
+    font-weight: bold;
 }
 
 legend {
 	color: white;
 	background-color: #333;
+	padding: 5px 30px;
+    border-radius: 25px;
+}
+button{
+    padding: 5px 25px;
+    margin-top: 15px;
+    border-radius: 10px;
+    font-weight: bold;
+    background: #5bd2f7;
+}
+button:hover{
+    background: #24a7cf;
+    cursor: pointer;
+    border: 2px solid #24a7cf;
 }
 </style>
 </head>
@@ -65,24 +94,24 @@ legend {
 				<table>
 					<tr>
 						<td>Name</td>
-						<td><input type="text" name="name"></td>
+						<td><input type="text" name="name" size="40" class="input" autofocus="autofocus"></td>
 					</tr>
 
 					<tr>
 						<td>Email</td>
-						<td><input type="text" name="email"></td>
+						<td><input type="text" name="email" size="40" class="input"></td>
 					</tr>
 					<tr>
 						<td>Contact</td>
-						<td><input type="text" name="contact"></td>
+						<td><input type="text" name="contact" size="40" class="input"></td>
 					</tr>
 					<tr>
 						<td>Address</td>
-						<td><input type="text" name="address"></td>
+						<td><input type="text" name="address" size="40" class="input"></td>
 					</tr>
 
 				</table>
-				<input type="submit" value="Add">
+				<button type="submit">ADD</button>
 			</form>
 		</fieldset>
 

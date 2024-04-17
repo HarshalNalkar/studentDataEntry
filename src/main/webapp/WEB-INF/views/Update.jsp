@@ -15,6 +15,12 @@ String msg = (String) request.getAttribute("msg");
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 <style type="text/css">
+body{
+	font-family: "Lato", sans-serif;
+}
+div{
+margin-top: 30px;
+}
 form {
 	margin-top: 10px;
 }
@@ -27,17 +33,30 @@ form table {
 tr {
 	text-align: center;
 }
+.input{
+    padding: 5px;
+}
 
 #data {
-	background-color: white;
+	background: hsl(204, 15%, 94%);
 	border: 1px solid black;
 	width: 100%;
 	border: 1px solid black;
+	padding: 7px;
+	margin-top: 30px;
 }
 
+div{
+margin-top: 30px;
+}
+
+.input{
+    padding: 5px;
+}
 #data td {
 	border: 1px solid black;
 	text-align: center;
+	padding: 7px;
 }
 
 fieldset table {
@@ -46,14 +65,30 @@ fieldset table {
 }
 
 fieldset {
-	margin: 15px 520px;
-	text-align: center;
+	margin: 15px 420px;
+	text-align: center; 
+	border-radius: 10px;
+    font-weight: bold;
 }
 
 legend {
 	color: white;
 	background-color: #333;
+	padding: 5px 30px;
+    border-radius: 25px;
+   
 }
+button{
+    padding: 5px 25px;
+    margin-top: 15px;
+    border-radius: 10px;
+    font-weight: bold;
+    background: #5bd2f7;
+}
+button:hover{
+    background: #24a7cf;
+    cursor: pointer;
+    border: 2px solid #24a7cf;
 </style>
 </head>
 <body>
@@ -67,10 +102,10 @@ legend {
 				<table>
 					<tr>
 						<td>Enter ID</td>
-						<td><input type="text" name="id"></td>
+						<td><input type="text" name="id" size="40" class="input"></td>
 					</tr>
 				</table>
-				<input type="submit" value="SELECT">
+				<button type="submit">SELECT</button>
 			</form>
 		</fieldset>
 		<%
@@ -118,30 +153,30 @@ legend {
 					<tr>
 						<td>ID</td>
 						<td><input type="text" name="id" readonly="readonly"
-							value="<%=pojo.getId()%>"></td>
+							value="<%=pojo.getId()%>" size="40" class="input"></td>
 					</tr>
 					<tr>
 						<td>NAME</td>
 						<td><input type="text" name="name"
-							value="<%=pojo.getName()%>"></td>
+							value="<%=pojo.getName()%>" size="40" class="input"></td>
 					</tr>
 					<tr>
 						<td>EMAIL</td>
 						<td><input type="text" name="email"
-							value="<%=pojo.getEmail()%>"></td>
+							value="<%=pojo.getEmail()%>" size="40" class="input"></td>
 					</tr>
 					<tr>
 						<td>CONTACT</td>
 						<td><input type="text" name="contact"
-							value="<%=pojo.getContact()%>"></td>
+							value="<%=pojo.getContact()%>" size="40" class="input"></td>
 					</tr>
 					<tr>
 						<td>ADDRESS</td>
 						<td><input type="text" name="address"
-							value="<%=pojo.getAddress()%>"></td>
+							value="<%=pojo.getAddress()%>" size="40" class="input"></td>
 					</tr>
 				</table>
-				<input type="submit" value="UPDATE">
+				<button type="submit">UPDATE</button>
 			</form>
 		</fieldset>
 		<%

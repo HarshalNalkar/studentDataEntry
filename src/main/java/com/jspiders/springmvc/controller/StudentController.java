@@ -20,7 +20,6 @@ public class StudentController {
 	@Autowired
 	private StudentService service;
 
-	// @RequestMapping(path="/home", method=RequestMethod.GET)
 	@GetMapping("/home")
 	public String home(@SessionAttribute(name = "login", required = false) AdminPOJO admin, ModelMap map) {
 

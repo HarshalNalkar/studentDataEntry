@@ -8,9 +8,8 @@
 <style type="text/css">
 
 body {
-	background-image:
-		url('https://www.xmple.com/wallpaper/linear-blue-white-highlight-gradient-1920x1080-c2-ffffff-e0ffff-l-50-a-165-f-21.svg');
-	background-size: 100%;
+	background: hsl(0, 0%, 88%);
+	font-family: "Lato", sans-serif;
 }
 
 fieldset table {
@@ -44,6 +43,7 @@ li a {
 	margin: 0px;
 	padding: 15px;
 	color: white;
+	text-decoration: none;
 }
 
 li a:hover {
